@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA assignment 2</title>
+  </head>
+  <body>
+    <h4>Test Babyyyy</h4>
+    <script>
+      var inputArray = [];
+      var size = window.prompt("enter a positive integer for the array size");
+      size = Number(size);
+
+      while (size || !size) {
+        while (size < 1) {
+          alert("please enter a positive integer");
+          size = window.prompt("enter a positive integer for the array size");
+          size = Number(size);
+          if (size > 0) {
+            break;
+          }
+        }
+        while (!Number.isInteger(size)) {
+          alert("please enter a positive integer");
+          size = window.prompt("enter a positive integer for the array size");
+          size = Number(size);
+          if (Number.isInteger(size)) {
+            break;
+          }
+        }
+        if (Number.isInteger(size) && size > 0) {
+          var ask = prompt("want to delete or insert?");
+          ask = ask.toLowerCase();
+
+          if (ask === "insert") {
+            for (var i = 0; i < size; i++) {
+              inputArray[i] = prompt("Enter Element " + (i + 1));
+              inputArray[i] = Number(inputArray[i]);
+
+              while (inputArray[i] || !inputArray[i]) {
+                while (inputArray[i] < 1) {
+                  alert("please enter a positive integer");
+                  inputArray[i] = window.prompt(
+                    "enter a positive integer for the array"
+                  );
+                  inputArray[i] = Number(inputArray[i]);
+                  if (inputArray[i] > 0) {
+                    break;
+                  }
+                }
+                while (!Number.isInteger(inputArray[i])) {
+                  alert("please enter a positive integer");
+                  inputArray[i] = window.prompt(
+                    "enter a positive integer for the array"
+                  );
+                  inputArray[i] = Number(inputArray[i]);
+                  if (Number.isInteger(inputArray[i])) {
+                    break;
+                  }
+                }
+                if (Number.isInteger(inputArray[i]) && inputArray[i] > 0) {
+                  break;
+                }
+              }
+            }
+          } else if (ask === "delete") {
+            if (inputArray.length === 0) {
+              alert("cannot delete an empty array. Input some values first.");
+              for (var i = 0; i < size; i++) {
+                inputArray[i] = prompt("Enter Element " + (i + 1));
+                inputArray[i] = Number(inputArray[i]);
+
+                while (inputArray[i] || !inputArray[i]) {
+                  while (inputArray[i] < 1) {
+                    alert("please enter a positive integer");
+                    inputArray[i] = window.prompt(
+                      "enter a positive integer for the array"
+                    );
+                    inputArray[i] = Number(inputArray[i]);
+                    if (inputArray[i] > 0) {
+                      break;
+                    }
+                  }
+                  while (!Number.isInteger(inputArray[i])) {
+                    alert("please enter a positive integer");
+                    inputArray[i] = window.prompt(
+                      "enter a positive integer for the array"
+                    );
+                    inputArray[i] = Number(inputArray[i]);
+                    if (Number.isInteger(inputArray[i])) {
+                      break;
+                    }
+                  }
+                  if (Number.isInteger(inputArray[i]) && inputArray[i] > 0) {
+                    break;
+                  }
+                }
+              }
+              inputArray.pop();
+              alert("last element in the array deleted");
+            }
+          }
+
+          //Print the array in the console.
+          console.log("array: ", inputArray);
+          break;
+        }
+      }
+
+      const rotateRight = (arr) => {
+        let last = arr.pop();
+        arr.unshift(last);
+        return arr;
+      };
+
+      console.log("rotated array: ", rotateRight(inputArray));
+    </script>
+  </body>
+</html>
